@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(/src/components/pic/backgroundPic.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  font-family: Poppins;
+  flex-direction: column;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
