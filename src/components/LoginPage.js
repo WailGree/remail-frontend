@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
+import { login } from "../controller/Controller";
 
 function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
@@ -74,7 +75,8 @@ function AuthenticationButton() {
 
   const SubmitHandler = (event) => {
     event.preventDefault();
-    alert("Your age must be a number");
+    login(event.target.username.value, event.target.password.value);
+    //alert(event.target.username.value + event.target.password.value);
   };
 
   return (
@@ -83,17 +85,9 @@ function AuthenticationButton() {
         <Logo />
         <form onSubmit={SubmitHandler}>
           <p>Enter your name:</p>
-          <input
-            type="text"
-            name="username"
-            // onChange={this.myChangeHandler}
-          />
+          <input required type="text" name="username" />
           <p>Enter your password:</p>
-          <input
-            type="password"
-            name="password"
-            //  onChange={this.myChangeHandler}
-          />
+          <input required type="password" name="password" />
           <Button type="submit" primary onClick={handleSignIn}>
             Sign in
           </Button>
