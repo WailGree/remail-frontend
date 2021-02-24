@@ -15,11 +15,20 @@ export function sendAjax(
   onSuccess = null
 ) {
   const scope = this;
-  const requestOptions = { method: method, body: body };
-  if (method === "POST" || method === "PUT") {
-    requestOptions.headers = { "Content-type": "application/json" };
+  let formBody = [];
+  for (let property in body) {
+    let encodedKey = encodeURIComponent(property);
+    let encodedValue = encodeURIComponent(body[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
   }
-  let url = `api/${endpoint}`;
+  formBody = formBody.join("&");
+  const requestOptions = { method: method, body: formBody };
+  if (method === "POST" || method === "PUT") {
+    requestOptions.headers = {
+      "Content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+    };
+  }
+  let url = `https://localhost:44357/api/${endpoint}`;
   url += !!params ? `?${params}` : "";
   fetch(url, requestOptions)
     .then((response) => {
@@ -47,14 +56,7 @@ export function login(username, password) {
     username: username,
     password: password,
   };
-  sendAjax(
-    "login",
-    "POST",
-    null,
-    JSON.stringify(newLogin)
-    //   function (data) {
-    //     this.view.clearNewTodo();
-    //     this._refresh(true);
-    //   }
-  );
+  sendAjax("login", "POST", null, newLogin, function (data) {
+    console.log(data);
+  });
 }
