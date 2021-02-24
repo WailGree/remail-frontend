@@ -74,7 +74,7 @@ function AuthenticationButton() {
 
   const SubmitHandler = (event) => {
     event.preventDefault();
-    alert("Your age must be a number" + name);
+    alert("Your age must be a number");
   };
 
   return (
