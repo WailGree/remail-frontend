@@ -40,7 +40,7 @@ const store = createStore({
     },
   ], // should be null by default just for testing!!
   userName: null,
-  loggedIn: true, // should be false by default just for testing!!
+  loggedIn: false, // should be false by default just for testing!!
   toggle: action((state) => {
     state.loggedIn = !state.loggedIn;
   }),
