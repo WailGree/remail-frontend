@@ -1,19 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import picture from "./pic/logo.png";
 import { sendEmail } from "../controller/Controller";
 import Button from "../elements/Button";
+import Logo from "../elements/Logo";
 
 function NewEmail() {
-  const Logo = styled.div`
-    width: 75px;
-    height: 75px;
-    border-radius: 5px;
-    background-image: url(${picture});
-    -webkit-background-size: cover;
-    background-size: cover;
-  `;
-
   const NavCenter = styled.div`
     text-align: center;
     width: 150px;
