@@ -1,5 +1,4 @@
 import React from "react";
-import gmailApi from "react-gmail";
 import styled, { css } from "styled-components";
 import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
@@ -9,15 +8,15 @@ function AuthenticationButton() {
   const setMessages = useStoreActions((actions) => actions.setMessages);
   const setUser = useStoreActions((actions) => actions.setUser);
   function handleSignIn() {
-    gmailApi.handleSignIn().then(() => {
-      gmailApi.getMessages(false, 1000).then((messages) => {
-        gmailApi.getProfile().then((profile) => {
-          setMessages(gmailApi.normalizeData(messages));
-          setUser(profile.result.emailAddress);
-          changeLoginState();
-        });
-      });
-    });
+    // gmailApi.handleSignIn().then(() => {
+    //   gmailApi.getMessages(false, 1000).then((messages) => {
+    //     gmailApi.getProfile().then((profile) => {
+    //       setMessages(gmailApi.normalizeData(messages));
+    //       setUser(profile.result.emailAddress);
+    //       changeLoginState();
+    //     });
+    //   });
+    // });
   }
 
   const Button = styled.button`

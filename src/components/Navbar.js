@@ -1,5 +1,4 @@
 import React from "react";
-import gmailApi from "react-gmail";
 import styled, { css } from "styled-components";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import picture from "./pic/logo.png";
@@ -10,9 +9,9 @@ function Navbar() {
   const User = useStoreState((actions) => actions.userName);
 
   function handleSignOut() {
-    gmailApi.handleSignOut().then(() => {
-      changeLoginState();
-    });
+    // gmailApi.handleSignOut().then(() => {
+    //   changeLoginState();
+    // });
   }
 
   const Button = styled.button`
@@ -68,7 +67,11 @@ function Navbar() {
     align-items: center;
     flex-direction: column;
   `;
-  const logOutButton = <Button primary onClick={handleSignOut}>Sign out</Button>
+  const logOutButton = (
+    <Button primary onClick={handleSignOut}>
+      Sign out
+    </Button>
+  );
   let content = (
     <Nav>
       <Logo></Logo>
