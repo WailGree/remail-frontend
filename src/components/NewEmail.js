@@ -3,12 +3,13 @@ import styled from "styled-components";
 import { sendEmail } from "../controller/Controller";
 import Button from "../elements/Button";
 import Logo from "../elements/Logo";
+import { useHistory } from "react-router-dom";
 
 function NewEmail() {
   const NavCenter = styled.div`
     text-align: center;
-    width: 150px;
-    height: 150px;
+    width: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,9 +17,10 @@ function NewEmail() {
   `;
 
   const Container = styled.div`
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 600px;
     color: #000;
+    background: rgba(255, 255, 255, 0.4);
     top: 50%;
     left: 50%;
     padding: 60px 30px;
@@ -33,11 +35,29 @@ function NewEmail() {
     flex-direction: column;
   `;
 
+  const inputStyle = {
+    fontSize: "14px",
+    height: "25px",
+    width: "390px",
+    background: "rgba(255, 255, 255, 0.6)",
+    align: "left",
+  };
+
+  const textAreaStyle = {
+    fontSize: "13px",
+    height: "75px",
+    width: "390px",
+    background: "rgba(255, 255, 255, 0.6)",
+    alignItems: "left",
+  };
+
+  const history = useHistory();
+
   const SubmitHandler = (event) => {
     event.preventDefault();
     let t = event.target;
     sendEmail(t.message.value, t.subject.value, t.to.value);
-    //alert(event.target.username.value + event.target.password.value);
+    history.goBack();
   };
 
   return (
@@ -46,11 +66,11 @@ function NewEmail() {
         <Logo />
         <form onSubmit={SubmitHandler}>
           <p>To:</p>
-          <input required type="text" name="to" />
+          <input style={inputStyle} required type="text" name="to" />
           <p>Subject:</p>
-          <input required type="text" name="subject" />
+          <input style={inputStyle} required type="text" name="subject" />
           <p>Message:</p>
-          <input required type="text" name="message" />
+          <textarea style={textAreaStyle} required type="text" name="message" />
           <Button type="submit" primary>
             Send
           </Button>
