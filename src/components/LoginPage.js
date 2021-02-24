@@ -3,8 +3,7 @@ import styled, { css } from "styled-components";
 import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
 import { login } from "../controller/Controller";
-import { sendEmail } from "../controller/Controller";
-import { Link } from "react-router-dom";
+import Link from "../elements/Link";
 
 function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
@@ -94,8 +93,7 @@ function AuthenticationButton() {
             Sign in
           </Button>
         </form>
-
-        <Link to={`/new-email`}>new mail</Link>
+        <Link to={`/new-email`}>+</Link>
       </NavCenter>
     </Container>
   );
