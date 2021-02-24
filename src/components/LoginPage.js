@@ -71,13 +71,33 @@ function AuthenticationButton() {
     align-items: center;
     flex-direction: column;
   `;
+
+  const SubmitHandler = (event) => {
+    event.preventDefault();
+    alert("Your age must be a number" + name);
+  };
+
   return (
     <Container>
       <NavCenter>
         <Logo />
-        <Button primary onClick={handleSignIn}>
-          Sign in
-        </Button>
+        <form onSubmit={SubmitHandler}>
+          <p>Enter your name:</p>
+          <input
+            type="text"
+            name="username"
+            // onChange={this.myChangeHandler}
+          />
+          <p>Enter your password:</p>
+          <input
+            type="password"
+            name="password"
+            //  onChange={this.myChangeHandler}
+          />
+          <Button type="submit" primary onClick={handleSignIn}>
+            Sign in
+          </Button>
+        </form>
       </NavCenter>
     </Container>
   );
