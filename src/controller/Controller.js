@@ -60,3 +60,17 @@ export function login(username, password) {
     console.log(data);
   });
 }
+
+/**
+ * Send new email.
+ */
+export function sendEmail(body, subject, to) {
+  let newEmail = {
+    body: body,
+    subject: subject,
+    to: to,
+  };
+  sendAjax("send-email", "POST", null, newEmail, function (data) {
+    console.log(data);
+  });
+}

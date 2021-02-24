@@ -1,27 +1,9 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
-import { login } from "../controller/Controller";
 import { sendEmail } from "../controller/Controller";
-import { Link } from "react-router-dom";
 
-function AuthenticationButton() {
-  const changeLoginState = useStoreActions((actions) => actions.toggle);
-  const setMessages = useStoreActions((actions) => actions.setMessages);
-  const setUser = useStoreActions((actions) => actions.setUser);
-  function handleSignIn() {
-    // gmailApi.handleSignIn().then(() => {
-    //   gmailApi.getMessages(false, 1000).then((messages) => {
-    //     gmailApi.getProfile().then((profile) => {
-    //       setMessages(gmailApi.normalizeData(messages));
-    //       setUser(profile.result.emailAddress);
-    //       changeLoginState();
-    //     });
-    //   });
-    // });
-  }
-
+function NewEmail() {
   const Button = styled.button`
     background: transparent;
     border-radius: 4px;
@@ -77,7 +59,8 @@ function AuthenticationButton() {
 
   const SubmitHandler = (event) => {
     event.preventDefault();
-    login(event.target.username.value, event.target.password.value);
+    let t = event.target;
+    sendEmail(t.message.value, t.subject.value, t.to.value);
     //alert(event.target.username.value + event.target.password.value);
   };
 
@@ -86,19 +69,17 @@ function AuthenticationButton() {
       <NavCenter>
         <Logo />
         <form onSubmit={SubmitHandler}>
-          <p>Enter your name:</p>
-          <input required type="text" name="username" />
-          <p>Enter your password:</p>
-          <input required type="password" name="password" />
-          <Button type="submit" primary onClick={handleSignIn}>
-            Sign in
-          </Button>
+          <p>To:</p>
+          <input required type="text" name="to" />
+          <p>Subject:</p>
+          <input required type="text" name="subject" />
+          <p>Message:</p>
+          <input required type="text" name="message" />
+          <Button>Send</Button>
         </form>
-
-        <Link to={`/new-email`}>new mail</Link>
       </NavCenter>
     </Container>
   );
 }
 
-export default AuthenticationButton;
+export default NewEmail;
