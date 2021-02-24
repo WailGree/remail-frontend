@@ -1,25 +1,10 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import picture from "./pic/logo.png";
 import { sendEmail } from "../controller/Controller";
+import Button from "../elements/Button";
 
 function NewEmail() {
-  const Button = styled.button`
-    background: transparent;
-    border-radius: 4px;
-    border: 9px solid red;
-    color: palevioletred;
-    margin: 0 1em;
-    padding: 0.25em 0.5em;
-
-    ${(props) =>
-      props.primary &&
-      css`
-        background: red;
-        color: white;
-      `};
-  `;
-
   const Logo = styled.div`
     width: 75px;
     height: 75px;
@@ -75,7 +60,9 @@ function NewEmail() {
           <input required type="text" name="subject" />
           <p>Message:</p>
           <input required type="text" name="message" />
-          <Button>Send</Button>
+          <Button type="submit" primary>
+            Send
+          </Button>
         </form>
       </NavCenter>
     </Container>
