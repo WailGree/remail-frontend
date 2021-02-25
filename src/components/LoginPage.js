@@ -10,7 +10,9 @@ function AuthenticationButton() {
   const setUser = useStoreActions((actions) => actions.setUser);
   function handleSignIn(event) {
     event.preventDefault();
-    login(event.target.username.value, event.target.password.value);
+    if (login(event.target.username.value, event.target.password.value)) {
+      changeLoginState();
+    }
   }
 
   const Button = styled.button`
