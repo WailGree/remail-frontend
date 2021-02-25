@@ -51,13 +51,18 @@ export function sendAjax(
 /**
  * Add login with username an Password.
  */
-export function login(username, password) {
+export function login(username, password, callback) {
   let newLogin = {
     username: username,
     password: password,
   };
   sendAjax("login", "POST", null, newLogin, function (data) {
     console.log(data);
+    if (data === "Success") {
+      callback(true);
+    }
+    callback(false);
+    // #TODO return true in case login success
   });
 }
 
@@ -70,6 +75,5 @@ export function logOut(username) {
   };
   sendAjax("log-out", "POST", null, logOut, function (data) {
     console.log(data);
-    // #TODO return true in case login success
   });
 }

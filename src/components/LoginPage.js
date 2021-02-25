@@ -10,8 +10,18 @@ function AuthenticationButton() {
   const setUser = useStoreActions((actions) => actions.setUser);
   function handleSignIn(event) {
     event.preventDefault();
-    if (login(event.target.username.value, event.target.password.value)) {
-      changeLoginState();
+    if (
+      login(
+        event.target.username.value,
+        event.target.password.value,
+        (response) => {
+          if (response) {
+            changeLoginState();
+          }
+        }
+      )
+    ) {
+      //#TODO get emails !!
     }
   }
 
@@ -42,8 +52,8 @@ function AuthenticationButton() {
 
   const NavCenter = styled.div`
     text-align: center;
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,8 +61,8 @@ function AuthenticationButton() {
   `;
 
   const Container = styled.div`
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     color: #000;
     top: 50%;
     left: 50%;
@@ -70,9 +80,9 @@ function AuthenticationButton() {
 
   return (
     <Container>
-      <NavCenter>
-        <Logo />
-        <form onSubmit={handleSignIn}>
+      <form onSubmit={handleSignIn}>
+        <NavCenter>
+          <Logo />
           <p>Enter your name:</p>
           <input required type="text" name="username" />
           <p>Enter your password:</p>
@@ -80,8 +90,8 @@ function AuthenticationButton() {
           <Button type="submit" primary>
             Sign in
           </Button>
-        </form>
-      </NavCenter>
+        </NavCenter>
+      </form>
     </Container>
   );
 }
