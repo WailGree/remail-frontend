@@ -8,8 +8,9 @@ function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
   const setMessages = useStoreActions((actions) => actions.setMessages);
   const setUser = useStoreActions((actions) => actions.setUser);
-  function handleSignIn() {
-    //#TODO handle Sign in , get emails
+  function handleSignIn(event) {
+    event.preventDefault();
+    login(event.target.username.value, event.target.password.value);
   }
 
   const Button = styled.button`
@@ -65,21 +66,16 @@ function AuthenticationButton() {
     flex-direction: column;
   `;
 
-  const SubmitHandler = (event) => {
-    event.preventDefault();
-    login(event.target.username.value, event.target.password.value);
-  };
-
   return (
     <Container>
       <NavCenter>
         <Logo />
-        <form onSubmit={SubmitHandler}>
+        <form onSubmit={handleSignIn}>
           <p>Enter your name:</p>
           <input required type="text" name="username" />
           <p>Enter your password:</p>
           <input required type="password" name="password" />
-          <Button type="submit" primary onClick={handleSignIn}>
+          <Button type="submit" primary>
             Sign in
           </Button>
         </form>
