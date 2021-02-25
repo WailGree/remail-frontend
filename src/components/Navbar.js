@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import picture from "./pic/logo.png";
 import { logOut } from "../controller/Controller";
+import Link from "../elements/Link";
 
 function Navbar() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
@@ -76,7 +77,10 @@ function Navbar() {
     <Nav>
       <Logo></Logo>
       <Greet>Welcome: somebody! </Greet>
-      {logOutButton}
+      <div>
+        <Link to={`/new-email`}>+</Link>
+        {logOutButton}
+      </div>
     </Nav>
   );
   if (User) {
@@ -84,7 +88,10 @@ function Navbar() {
       <Nav>
         <Logo></Logo>
         <Greet>Welcome: {User}!</Greet>
-        {logOutButton}
+        <div>
+          <Link to={`/new-email`}>+</Link>
+          {logOutButton}
+        </div>
       </Nav>
     );
   }

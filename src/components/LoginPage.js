@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
 import { login, getMails } from "../controller/Controller";
-import Link from "../elements/Link";
 
 function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
@@ -23,7 +22,7 @@ function AuthenticationButton() {
           changeLoginState();
         }
       }
-    )
+    );
   }
 
   const Button = styled.button`
@@ -93,7 +92,6 @@ function AuthenticationButton() {
           </Button>
         </NavCenter>
       </form>
-      <Link to={`/new-email`}>+</Link>
     </Container>
   );
 }
