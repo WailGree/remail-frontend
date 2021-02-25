@@ -2,14 +2,17 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
-import { login } from "../controller/Controller";
+import { login, getMails } from "../controller/Controller";
 
 function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
   const setMessages = useStoreActions((actions) => actions.setMessages);
   const setUser = useStoreActions((actions) => actions.setUser);
   function handleSignIn() {
-    //#TODO handle Sign in , get emails
+    //#TODO handle Sign in, get emails
+    getMails((data) =>{
+      setMessages(data);
+    });
   }
 
   const Button = styled.button`
