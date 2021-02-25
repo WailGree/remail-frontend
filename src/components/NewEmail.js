@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { sendEmail } from "../controller/Controller";
 import Button from "../elements/Button";
 import Logo from "../elements/Logo";
+import Container from "../elements/Container";
 import { useHistory } from "react-router-dom";
 
 function NewEmail() {
@@ -16,24 +17,10 @@ function NewEmail() {
     align-items: center;
   `;
 
-  const Container = styled.div`
-    width: 500px;
-    height: 600px;
-    color: #000;
-    background: rgba(255, 255, 255, 0.4);
-    top: 50%;
-    left: 50%;
-    padding: 60px 30px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    box-shadow: 8px 8px 50px #000;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  `;
+  const containerStyle = {
+    width: "500px",
+    height: "600px",
+  };
 
   const inputStyle = {
     fontSize: "14px",
@@ -61,12 +48,12 @@ function NewEmail() {
   };
 
   return (
-    <Container>
+    <Container style={containerStyle}>
       <NavCenter>
         <Logo />
         <form onSubmit={SubmitHandler}>
           <p>To:</p>
-          <input style={inputStyle} required type="text" name="to" />
+          <input style={inputStyle} required type="email" name="to" />
           <p>Subject:</p>
           <input style={inputStyle} required type="text" name="subject" />
           <p>Message:</p>
