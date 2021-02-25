@@ -49,14 +49,28 @@ export function sendAjax(
 }
 
 /**
- * Add an item and display it in the list.
+ * Add login with username an Password.
  */
-export function login(username, password) {
+export function login(username, password, callback) {
   let newLogin = {
     username: username,
     password: password,
   };
   sendAjax("login", "POST", null, newLogin, function (data) {
-    console.log(data);
+    if (data === "Success") {
+      callback(true);
+    }
+    callback(false);
+    // #TODO return true in case login success
   });
+}
+
+/**
+ * Send log out request
+ */
+export function logOut(username) {
+  let logOut = {
+    username: username,
+  };
+  sendAjax("log-out", "POST", null, logOut, function (data) {});
 }

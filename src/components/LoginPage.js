@@ -8,8 +8,21 @@ function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
   const setMessages = useStoreActions((actions) => actions.setMessages);
   const setUser = useStoreActions((actions) => actions.setUser);
-  function handleSignIn() {
-    //#TODO handle Sign in , get emails
+  function handleSignIn(event) {
+    event.preventDefault();
+    if (
+      login(
+        event.target.username.value,
+        event.target.password.value,
+        (response) => {
+          if (response) {
+            changeLoginState();
+          }
+        }
+      )
+    ) {
+      //#TODO get emails !!
+    }
   }
 
   const Button = styled.button`
@@ -39,8 +52,8 @@ function AuthenticationButton() {
 
   const NavCenter = styled.div`
     text-align: center;
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,8 +61,8 @@ function AuthenticationButton() {
   `;
 
   const Container = styled.div`
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     color: #000;
     top: 50%;
     left: 50%;
@@ -65,25 +78,20 @@ function AuthenticationButton() {
     flex-direction: column;
   `;
 
-  const SubmitHandler = (event) => {
-    event.preventDefault();
-    login(event.target.username.value, event.target.password.value);
-  };
-
   return (
     <Container>
-      <NavCenter>
-        <Logo />
-        <form onSubmit={SubmitHandler}>
+      <form onSubmit={handleSignIn}>
+        <NavCenter>
+          <Logo />
           <p>Enter your name:</p>
           <input required type="text" name="username" />
           <p>Enter your password:</p>
           <input required type="password" name="password" />
-          <Button type="submit" primary onClick={handleSignIn}>
+          <Button type="submit" primary>
             Sign in
           </Button>
-        </form>
-      </NavCenter>
+        </NavCenter>
+      </form>
     </Container>
   );
 }
