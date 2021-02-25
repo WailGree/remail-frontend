@@ -9,9 +9,8 @@ function AuthenticationButton() {
   const setMessages = useStoreActions((actions) => actions.setMessages);
   const setUser = useStoreActions((actions) => actions.setUser);
   function handleSignIn() {
-    //#TODO handle Sign in, get emails
-    getMails((data) => {
-      setMessages(data);
+    getMails((emails) => {
+      //#TODO handle Sign in, get emails
     });
   }
 
