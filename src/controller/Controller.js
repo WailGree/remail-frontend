@@ -60,3 +60,10 @@ export function login(username, password) {
     console.log(data);
   });
 }
+
+export function getMails(callback) {
+  sendAjax("getMails", "POST", null, null, (emails) => {
+    callback(emails)
+  });
+
+};
