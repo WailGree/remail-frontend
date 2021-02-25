@@ -1,25 +1,20 @@
 import React from "react";
-import styled from "styled-components";
 import { sendEmail } from "../controller/Controller";
 import Button from "../elements/Button";
 import Logo from "../elements/Logo";
 import Container from "../elements/Container";
+import NavCenter from "../elements/NavCenter";
 import { useHistory } from "react-router-dom";
 
 function NewEmail() {
-  const NavCenter = styled.div`
-    text-align: center;
-    width: 400px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  `;
-
   const containerStyle = {
     width: "500px",
     height: "600px",
+  };
+
+  const navCenterStyle = {
+    width: "400px",
+    heigth: "500px",
   };
 
   const inputStyle = {
@@ -49,7 +44,7 @@ function NewEmail() {
 
   return (
     <Container style={containerStyle}>
-      <NavCenter>
+      <NavCenter style={navCenterStyle}>
         <Logo />
         <form onSubmit={SubmitHandler}>
           <p>To:</p>
