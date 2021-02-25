@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
 import { login, getMails } from "../controller/Controller";
+import Link from "../elements/Link";
 
 function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
@@ -11,7 +12,6 @@ function AuthenticationButton() {
 
   function handleSignIn(event) {
     event.preventDefault();
-
     login(
       event.target.username.value,
       event.target.password.value,
@@ -93,6 +93,7 @@ function AuthenticationButton() {
           </Button>
         </NavCenter>
       </form>
+      <Link to={`/new-email`}>+</Link>
     </Container>
   );
 }

@@ -66,17 +66,31 @@ export function login(username, password, callback) {
 }
 
 export function getMails(callback) {
-  sendAjax("getMails", "POST", null, null, (emails) => {
+  sendAjax("get-mails", "POST", null, null, (emails) => {
     callback(emails)
   });
 
 };
 /**
  * Send log out request
+/* Send new email.
+ */
+export function sendEmail(body, subject, to) {
+  let newEmail = {
+    body: body,
+    subject: subject,
+    to: to,
+  };
+  sendAjax("send-email", "POST", null, newEmail, function (data) {
+    console.log(data);
+  });
+}
+
+/* Send log out request
  */
 export function logOut(username) {
   let logOut = {
     username: username,
   };
-  sendAjax("log-out", "POST", null, logOut, function (data) {});
+  sendAjax("log-out", "POST", null, logOut, function (data) { });
 }
