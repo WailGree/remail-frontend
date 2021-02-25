@@ -50,9 +50,9 @@ function NewEmail() {
           <p>To:</p>
           <input style={inputStyle} required type="email" name="to" />
           <p>Subject:</p>
-          <input style={inputStyle} required type="text" name="subject" />
+          <input style={inputStyle} type="text" name="subject" />
           <p>Message:</p>
-          <textarea style={textAreaStyle} required type="text" name="message" />
+          <textarea style={textAreaStyle} type="text" name="message" />
           <Button type="submit" primary>
             Send
           </Button>
