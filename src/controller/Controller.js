@@ -64,8 +64,12 @@ export function login(username, password) {
 /**
  * Send log out request
  */
-export function logOut() {
-  sendAjax("log-out", "POST", null, "log out", function (data) {
+export function logOut(username) {
+  let logOut = {
+    username: username,
+  };
+  sendAjax("log-out", "POST", null, logOut, function (data) {
     console.log(data);
+    // #TODO return true in case login success
   });
 }
