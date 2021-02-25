@@ -1,23 +1,15 @@
 import React from "react";
-import gmailApi from "react-gmail";
 import styled, { css } from "styled-components";
 import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
+import { login } from "../controller/Controller";
 
 function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
   const setMessages = useStoreActions((actions) => actions.setMessages);
   const setUser = useStoreActions((actions) => actions.setUser);
   function handleSignIn() {
-    gmailApi.handleSignIn().then(() => {
-      gmailApi.getMessages(false, 1000).then((messages) => {
-        gmailApi.getProfile().then((profile) => {
-          setMessages(gmailApi.normalizeData(messages));
-          setUser(profile.result.emailAddress);
-          changeLoginState();
-        });
-      });
-    });
+    //#TODO handle Sign in , get emails
   }
 
   const Button = styled.button`
@@ -72,13 +64,25 @@ function AuthenticationButton() {
     align-items: center;
     flex-direction: column;
   `;
+
+  const SubmitHandler = (event) => {
+    event.preventDefault();
+    login(event.target.username.value, event.target.password.value);
+  };
+
   return (
     <Container>
       <NavCenter>
         <Logo />
-        <Button primary onClick={handleSignIn}>
-          Sign in
-        </Button>
+        <form onSubmit={SubmitHandler}>
+          <p>Enter your name:</p>
+          <input required type="text" name="username" />
+          <p>Enter your password:</p>
+          <input required type="password" name="password" />
+          <Button type="submit" primary onClick={handleSignIn}>
+            Sign in
+          </Button>
+        </form>
       </NavCenter>
     </Container>
   );

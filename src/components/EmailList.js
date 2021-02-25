@@ -16,9 +16,8 @@ import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
 import PropTypes from "prop-types";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import Navbar from "./Navbar";
-
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -65,8 +64,8 @@ function TablePaginationActions(props) {
         {theme.direction === "rtl" ? (
           <KeyboardArrowRight />
         ) : (
-            <KeyboardArrowLeft />
-          )}
+          <KeyboardArrowLeft />
+        )}
       </IconButton>
       <IconButton
         onClick={handleNextButtonClick}
@@ -76,8 +75,8 @@ function TablePaginationActions(props) {
         {theme.direction === "rtl" ? (
           <KeyboardArrowLeft />
         ) : (
-            <KeyboardArrowRight />
-          )}
+          <KeyboardArrowRight />
+        )}
       </IconButton>
       <IconButton
         onClick={handleLastPageButtonClick}
@@ -123,23 +122,26 @@ export default function EmailList() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const title = useStoreState(state => state.displayedMessageTitle);
-  const from = useStoreState(state => state.displayedMessageFrom);
-  const date = useStoreState(state => state.displayedMessageDate);
-  const body = useStoreState(state => state.displayedMessageBody);
-  const modalIsOpen = useStoreState(state => state.modalIsOpen);
-  const setModalIsOpen = useStoreActions(actions => actions.setModalIsOpen);
+  const title = useStoreState((state) => state.displayedMessageTitle);
+  const from = useStoreState((state) => state.displayedMessageFrom);
+  const date = useStoreState((state) => state.displayedMessageDate);
+  const body = useStoreState((state) => state.displayedMessageBody);
+  const modalIsOpen = useStoreState((state) => state.modalIsOpen);
+  const setModalIsOpen = useStoreActions((actions) => actions.setModalIsOpen);
   return (
-    <div><Modal isOpen={modalIsOpen}
-      shouldCloseOnEsc={true}
-      shouldCloseOnOverlayClick={true}
-      onRequestClose={() => setModalIsOpen(false)}>
-      <button onClick={() => setModalIsOpen(false)}>Close</button>
-      <h2>{title}</h2>
-      <h3>{from}</h3>
-      <p>{date}</p>
-      <p>{body}</p>
-    </Modal>
+    <div>
+      <Modal
+        isOpen={modalIsOpen}
+        shouldCloseOnEsc={true}
+        shouldCloseOnOverlayClick={true}
+        onRequestClose={() => setModalIsOpen(false)}
+      >
+        <button onClick={() => setModalIsOpen(false)}>Close</button>
+        <h2>{title}</h2>
+        <h3>{from}</h3>
+        <p>{date}</p>
+        <p>{body}</p>
+      </Modal>
       <TableContainer className={classes.table} component={Paper}>
         <Navbar></Navbar>
         <Table aria-label="simple table">
@@ -164,10 +166,9 @@ export default function EmailList() {
           <TableBody>
             {(rowsPerPage > 0
               ? messages.slice(
-
-                page * rowsPerPage,
-                page * rowsPerPage + rowsPerPage
-              )
+                  page * rowsPerPage,
+                  page * rowsPerPage + rowsPerPage
+                )
               : messages
             ).map((message) => (
               <EmailListItem message={message} />
