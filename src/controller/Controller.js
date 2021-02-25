@@ -57,7 +57,6 @@ export function login(username, password, callback) {
     password: password,
   };
   sendAjax("login", "POST", null, newLogin, function (data) {
-    console.log(data);
     if (data === "Success") {
       callback(true);
     }
@@ -73,7 +72,5 @@ export function logOut(username) {
   let logOut = {
     username: username,
   };
-  sendAjax("log-out", "POST", null, logOut, function (data) {
-    console.log(data);
-  });
+  sendAjax("log-out", "POST", null, logOut, function (data) {});
 }
