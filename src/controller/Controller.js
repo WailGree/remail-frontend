@@ -60,3 +60,12 @@ export function login(username, password) {
     console.log(data);
   });
 }
+
+/**
+ * Send log out request
+ */
+export function logOut() {
+  sendAjax("log-out", "POST", null, "log out", function (data) {
+    console.log(data);
+  });
+}
