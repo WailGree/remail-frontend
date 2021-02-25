@@ -49,7 +49,7 @@ export function sendAjax(
 }
 
 /**
- * Add an item and display it in the list.
+ * Add login with username an Password.
  */
 export function login(username, password) {
   let newLogin = {
