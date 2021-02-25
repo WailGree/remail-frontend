@@ -65,6 +65,14 @@ export function login(username, password, callback) {
   });
 }
 
+export function getMails(callback) {
+  sendAjax("get-mails", "POST", null, null, (emails) => {
+    callback(emails)
+  });
+
+};
+/**
+ * Send log out request
 /* Send new email.
  */
 export function sendEmail(body, subject, to) {
@@ -84,5 +92,5 @@ export function logOut(username) {
   let logOut = {
     username: username,
   };
-  sendAjax("log-out", "POST", null, logOut, function (data) {});
+  sendAjax("log-out", "POST", null, logOut, function (data) { });
 }

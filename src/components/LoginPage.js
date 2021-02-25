@@ -2,28 +2,28 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
-import { login } from "../controller/Controller";
+import { login, getMails } from "../controller/Controller";
 import Link from "../elements/Link";
 
 function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
   const setMessages = useStoreActions((actions) => actions.setMessages);
   const setUser = useStoreActions((actions) => actions.setUser);
+
   function handleSignIn(event) {
     event.preventDefault();
-    if (
-      login(
-        event.target.username.value,
-        event.target.password.value,
-        (response) => {
-          if (response) {
-            changeLoginState();
-          }
+    login(
+      event.target.username.value,
+      event.target.password.value,
+      (response) => {
+        if (response) {
+          getMails((emails) => {
+            //#TODO handle Sign in, get emails
+          });
+          changeLoginState();
         }
-      )
-    ) {
-      //#TODO get emails !!
-    }
+      }
+    )
   }
 
   const Button = styled.button`
