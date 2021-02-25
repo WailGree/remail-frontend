@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import picture from "./pic/logo.png";
+import { logOut } from "../controller/Controller";
 
 function Navbar() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
@@ -9,7 +10,8 @@ function Navbar() {
   const User = useStoreState((actions) => actions.userName);
 
   function handleSignOut() {
-    // TODO send logout / send to backend
+    logOut();
+    changeLoginState();
   }
 
   const Button = styled.button`
