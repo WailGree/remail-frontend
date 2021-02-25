@@ -10,7 +10,7 @@ function AuthenticationButton() {
   const setUser = useStoreActions((actions) => actions.setUser);
   function handleSignIn() {
     //#TODO handle Sign in, get emails
-    getMails((data) =>{
+    getMails((data) => {
       setMessages(data);
     });
   }
