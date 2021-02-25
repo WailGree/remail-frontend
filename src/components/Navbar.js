@@ -9,9 +9,7 @@ function Navbar() {
   const User = useStoreState((actions) => actions.userName);
 
   function handleSignOut() {
-    // gmailApi.handleSignOut().then(() => {
-    //   changeLoginState();
-    // });
+    // TODO send logout / send to backend
   }
 
   const Button = styled.button`
