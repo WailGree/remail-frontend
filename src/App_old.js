@@ -1,7 +1,6 @@
 import "./App.css";
 import AuthenticationButton from "./components/LoginPage";
 import EmailList from "./components/EmailList";
-import NewEmail from "./components/NewEmail";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
 
@@ -11,11 +10,8 @@ function App(props) {
   let content = (
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route path="/">
           {loggedIn ? <EmailList /> : <AuthenticationButton />}
-        </Route>
-        <Route path="/new-email">
-          <NewEmail />
         </Route>
       </Switch>
     </Router>
