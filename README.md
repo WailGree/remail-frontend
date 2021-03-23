@@ -1,4 +1,4 @@
-#Remail-frontend
+# Remail-frontend
 
 Frontend of project "Remail". React based. Uses [Remail-backend](https://github.com/WailGree/remail-backend) API.
 
