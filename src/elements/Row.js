@@ -10,7 +10,7 @@ export default styled(TableRow)`
   }
   #cell1 {
     text-align: left;
-    width: 160px;
+    width: 180px;
     font-weight: ${(props) => (props.unread ? "bold" : "normal")};
   }
   & > #cell2 {
