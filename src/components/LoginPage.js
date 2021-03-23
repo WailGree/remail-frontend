@@ -17,7 +17,7 @@ function AuthenticationButton() {
       (response) => {
         if (response) {
           getMails((emails) => {
-            //#TODO handle Sign in, get emails
+            setMessages(emails);
           });
           changeLoginState();
         }
