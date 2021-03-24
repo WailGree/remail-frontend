@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export default styled.div`
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   color: #000;
   background: rgba(255, 255, 255, 0.4);
   top: 50%;
