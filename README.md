@@ -1,4 +1,4 @@
-#Remail-frontend
+# Remail-frontend
 
 Frontend of project "Remail". React based. Uses [Remail-backend](https://github.com/WailGree/remail-backend) API.
 
@@ -8,7 +8,6 @@ Pages:
 3. [Write Email](#write-email)
 
 ## Login Page
-
 Login page exists of username & password input fields, and login button. Uses API's "login" endpoint for credentials validation.
 
 ## Display Emails
