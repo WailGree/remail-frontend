@@ -1,5 +1,6 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled,  { css }  from "styled-components";
+import Container from "../elements/Container";
 import { useStoreActions } from "easy-peasy";
 import picture from "./pic/logo.png";
 import { login, getMails } from "../controller/Controller";
@@ -58,24 +59,6 @@ function AuthenticationButton() {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-  `;
-
-  const Container = styled.div`
-    width: 400px;
-    height: 400px;
-    color: #000;
-    top: 50%;
-    left: 50%;
-    padding: 60px 30px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    box-shadow: 8px 8px 50px #000;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
   `;
 
   return (
