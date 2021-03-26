@@ -67,7 +67,7 @@ export function login(username, password, callback) {
 
 export function getMails(callback) {
   sendAjax("get-mails", "POST", null, null, (emails) => {
-    callback(emails)
+    callback(JSON.parse(emails))
   });
 
 };

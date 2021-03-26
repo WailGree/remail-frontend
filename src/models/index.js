@@ -22,25 +22,9 @@ const store = createStore({
     state.modalIsOpen = bool;
   }),
   messages: [
-    {
-      date: "Tue, 09 Feb 2021 12:16:32 GMT",
-      subject: "Biztonsági értesítés",
-      from: "Google <no-reply@accounts.google.com>",
-      id: "17786b8cff6d19c1",
-      snippet:
-        "Új eszköz jelentkezett be ide: tom1.wales2@gmail.c… hogy meggyőződhessünk arról, Ön jelentkezett be.",
-    },
-    {
-      date: "Tue, 09 Feb 2021 12:16:32 GMT",
-      subject: "Biztonsági értesítés",
-      from: "Google <no-reply@accounts.google.com>",
-      id: "17786b8cff6d19c1",
-      snippet:
-        "Új eszköz jelentkezett be ide: tom1.wales2@gmail.c… hogy meggyőződhessünk arról, Ön jelentkezett be.",
-    },
-  ], // should be null by default just for testing!!
+  ], 
   userName: null,
-  loggedIn: false, // should be false by default just for testing!!
+  loggedIn: false, 
   toggle: action((state) => {
     state.loggedIn = !state.loggedIn;
   }),

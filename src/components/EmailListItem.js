@@ -12,7 +12,7 @@ const EmailListItem = (props) => {
   from = from === "" ? "me" : from;
 
   const subject = message.subject;
-  const snippet = message.snippet;
+  const snippet = message.body;
 
   let date = new Date(message.date);
   let copyOfDate = new Date(date);
