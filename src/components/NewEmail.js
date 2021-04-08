@@ -43,7 +43,7 @@ function NewEmail() {
   };
 
   return (
-    <Container style={containerStyle}>
+    <Container style={containerStyle} data-testid="email-container">
       <NavCenter style={navCenterStyle}>
         <Logo />
         <form onSubmit={SubmitHandler}>
