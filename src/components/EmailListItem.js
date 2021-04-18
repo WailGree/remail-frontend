@@ -31,7 +31,7 @@ const EmailListItem = (props) => {
   const setModalIsOpen = useStoreActions(actions => actions.setModalIsOpen);
 
   return (
-    <Row numeric component="a" onClick={() => {
+    <Row onClick={() => {
       setDisplayMessageTitle(subject);
       setDisplayMessageFrom(from);
       setDisplayMessageDate(date);
