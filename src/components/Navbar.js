@@ -31,28 +31,16 @@ function Navbar() {
       Sign out
     </Button>
   );
-  let content = (
-    <Nav>
-      <Logo></Logo>
-      <Greet>Welcome: somebody! </Greet>
-      <div>
-        <Link to={`/new-email`}>+</Link>
-        {logOutButton}
-      </div>
-    </Nav>
-  );
-  if (User) {
-    content = (
+    let content = (
       <Nav>
         <Logo></Logo>
-        <Greet>Welcome: {User}!</Greet>
+        <Greet>Welcome: {User ? User : "Somebody"}!</Greet>
         <div>
           <Link to={`/new-email`}>+</Link>
           {logOutButton}
         </div>
       </Nav>
     );
-  }
 
   return content;
 }
