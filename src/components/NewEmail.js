@@ -12,11 +12,6 @@ function NewEmail() {
     height: "600px",
   };
 
-  const navCenterStyle = {
-    width: "400px",
-    heigth: "500px",
-  };
-
   const inputStyle = {
     fontSize: "14px",
     height: "25px",
@@ -44,8 +39,8 @@ function NewEmail() {
 
   return (
     <Container style={containerStyle}>
-      <NavCenter style={navCenterStyle}>
-        <Logo />
+      <Logo />
+      <NavCenter>
         <form onSubmit={SubmitHandler}>
           <p>To:</p>
           <input style={inputStyle} required type="email" name="to" />
