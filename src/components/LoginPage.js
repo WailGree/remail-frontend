@@ -9,6 +9,7 @@ import { login, getMails } from "../controller/Controller";
 function AuthenticationButton() {
   const changeLoginState = useStoreActions((actions) => actions.toggle);
   const setMessages = useStoreActions((actions) => actions.setMessages);
+  const setUser = useStoreActions((actions) => actions.setUser);
 
   function handleSignIn(event) {
     event.preventDefault();
@@ -21,6 +22,7 @@ function AuthenticationButton() {
             setMessages(emails);
           });
           changeLoginState();
+          setUser(event.target.username.value);
         }
       }
     );
