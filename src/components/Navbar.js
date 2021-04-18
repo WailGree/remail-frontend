@@ -6,16 +6,7 @@ import Link from "../elements/Link";
 import Button from "../elements/Button";
 import Logo from "../elements/Logo";
 
-function Navbar() {
-  const changeLoginState = useStoreActions((actions) => actions.toggle);
-  const User = useStoreState((actions) => actions.userName);
-
-  function handleSignOut() {
-    logOut();
-    changeLoginState();
-  }
-
-  const Nav = styled.div`
+const Nav = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,6 +16,15 @@ function Navbar() {
     font-size: 15pt;
     font-family: fantasy;
   `;
+
+function Navbar() {
+  const changeLoginState = useStoreActions((actions) => actions.toggle);
+  const User = useStoreState((actions) => actions.userName);
+
+  function handleSignOut() {
+    logOut();
+    changeLoginState();
+  }
 
   const logOutButton = (
     <Button primary onClick={handleSignOut}>
