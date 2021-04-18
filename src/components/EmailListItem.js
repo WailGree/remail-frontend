@@ -42,8 +42,8 @@ const EmailListItem = (props) => {
       <TableCell id="cell1">{from}</TableCell>
       <TableCell id="cell2">
         <div>
-          <text id="subject">{subject}</text> - {snippet}
-        </div>
+            <span id="subject">{subject}</span> - {snippet}
+            </div>
       </TableCell>
       <TableCell id="cell3">{date}</TableCell>
     </Row>
