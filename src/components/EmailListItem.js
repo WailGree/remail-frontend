@@ -37,13 +37,13 @@ const EmailListItem = (props) => {
       setDisplayMessageDate(date);
       setDisplayMessageBody(snippet);
       setModalIsOpen(true);
-    }} unread={unread}>
+    }} unread={unread? 1 :0}>
 
       <TableCell id="cell1">{from}</TableCell>
       <TableCell id="cell2">
         <div>
             <span id="subject">{subject}</span> - {snippet}
-            </div>
+        </div>
       </TableCell>
       <TableCell id="cell3">{date}</TableCell>
     </Row>
