@@ -131,6 +131,7 @@ export default function EmailList() {
   return (
     <div>
       <Modal
+        ariaHideApp={false}
         isOpen={modalIsOpen}
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
@@ -171,7 +172,7 @@ export default function EmailList() {
                 )
               : messages
             ).map((message) => (
-              <EmailListItem message={message} />
+              <EmailListItem key={message.date} message={message} />
             ))}
             {emptyRows > 0 && (
               <TableRow style={{ height: 53 * emptyRows }}>
